@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreRateLimit;
 
 namespace StudentAPI
 {
@@ -29,6 +30,14 @@ namespace StudentAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddOptions(); //////////////
+            services.AddMemoryCache(); //////////////
+            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));////
+            services.AddInMemoryRateLimiting();//////////////
+
+
+
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddDbContext<StudentContext>(o => o.UseSqlite("Data source=student.db"));
             services.AddControllers();
@@ -36,11 +45,14 @@ namespace StudentAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "StudentAPI", Version = "v1" });
             });
+            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();//////////////
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseIpRateLimiting();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
