@@ -1,5 +1,5 @@
-using BookAPI.Models;
-using BookAPI.Repositories;
+using StudentAPI.Models;
+using StudentAPI.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookAPI
+namespace StudentAPI
 {
     public class Startup
     {
@@ -29,12 +29,12 @@ namespace BookAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IBookRepository, BookRepository>();
-            services.AddDbContext<BookContext>(o => o.UseSqlite("Data source=books.db"));
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddDbContext<StudentContext>(o => o.UseSqlite("Data source=student.db"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "StudentAPI", Version = "v1" });
             });
         }
 

@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookAPI.Models
+namespace StudentAPI.Models
 {
-    public class BookContext : DbContext
+    public class StudentContext : DbContext
     {
-        public BookContext(DbContextOptions<BookContext> options)
+        public StudentContext(DbContextOptions<StudentContext> options)
             :base(options)
         {
             Database.EnsureCreated();
         }
-        public DbSet<Book> Books { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
 }
