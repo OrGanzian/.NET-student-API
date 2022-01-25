@@ -14,6 +14,6 @@ namespace StudentAPI.Models
         public int GradeAvarage { get; set; }
         public string SchoolName { get; set; }
         public string SchoolAdress { get; set; }
-
     }
+
 }
