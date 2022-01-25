@@ -2,16 +2,18 @@
 
 This API allows you to manage students.
 
+This is my first expirience with .NET CORE & Redis
+
 Developed with:<br/>
 👨‍💻  .NET CORE <br/>
 💾  SQlite Database <br/>
 ⏳  Redis for distributed caching <br/>
 
-Why Distributed Caching using Redis?
+Why Distributed Caching using Redis?<br/>
 The server remembers HTTP requests for the last 10 sec.
 if the same request comes up again, the response will be retrieved from Redis cache instead of querying the DB again, for better performance.
 
-This is my first expirience with .NET CORE & Redis
+Please make sure Redis server is ON.
 
 ## Endpoints ##
 
@@ -32,7 +34,7 @@ Get all info about student.
 
 POST `/student`
 
-Allows you to submit a new student. 
+Allows you to submit a new student. <br/>
 Student MUST be under 18.
 
 The request body needs to be in JSON format and include the following properties:
