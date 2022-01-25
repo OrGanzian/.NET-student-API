@@ -2,10 +2,10 @@
 
 This API allows you to manage students.
 
-Developed with:
-👨‍💻  .NET CORE
-💾  SQlite Database
-⏳  Redis for distributed caching
+Developed with:<br/>
+👨‍💻  .NET CORE <br/>
+💾  SQlite Database <br/>
+⏳  Redis for distributed caching <br/>
 
 Why Distributed Caching using Redis?
 The server remembers HTTP requests for the last 10 sec.
@@ -15,11 +15,11 @@ This is my first expirience with .NET CORE & Redis
 
 ## Endpoints ##
 
-### Status ###
+### Get all students ###
 
 GET `/student`
 
-Get all the students.
+Get all the students available.
 
 ### Get a single student ###
 
