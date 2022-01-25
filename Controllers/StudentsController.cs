@@ -43,7 +43,7 @@ namespace StudentAPI.Controllers
                 string json = MyConverter.SerializeJson<IEnumerable<Student>>(byteArr);
                 _cache.SetString("getAll", json, new DistributedCacheEntryOptions
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(30)
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(10)
                 });
                 return byteArr;
             }
@@ -66,7 +66,7 @@ namespace StudentAPI.Controllers
                 string json = MyConverter.SerializeJson<Student>(byteArr);
                 _cache.SetString($"getStudentById{id}", json, new DistributedCacheEntryOptions
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(30)
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(10)
                 });
                 return byteArr;
             }
